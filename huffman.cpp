@@ -56,7 +56,10 @@ int main(){
 		Node* cur=new Node(it.first,it.second);
 		pq.push({it.second,cur});
 	}
-
+	if(fq.size()==1){
+		Node* cur=new Node('#',INT_MAX);
+		pq.push({INT_MAX,cur});
+	}
 	while(pq.size()>1){
 		pair<int,Node*>p1=pq.top();
 		pq.pop();
@@ -75,6 +78,7 @@ int main(){
 
 	for(auto it:mp)
 		cout<<it.first<<" "<<it.second<<endl;
+
 	for(auto it:str){
 		string t=mp[it];
 		for(char it1:t){
@@ -84,7 +88,7 @@ int main(){
 				encoded_string.push_back(1);
 		}
 	}
-	cout<<str<<endl;
+	
 	for(auto it:encoded_string){
 		if(it)
 			cout<<1;
